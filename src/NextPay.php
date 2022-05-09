@@ -38,7 +38,7 @@ class NextPay implements Gateway
      */
     public function pay(Request $request, Billing $billing)
     {    
-        return Payment::via('nextpay')
+        return (string) Payment::via('nextpay')
                         ->config(array_merge($this->getConfigurations(), [
                         	'callbackUrl' => $billing->callback(),
                         ]))
