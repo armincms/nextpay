@@ -69,7 +69,6 @@ class NextPay implements Gateway
         return Payment::amount(intval($billing->amount()))
                     ->via('nextpay')
                     ->config($this->getConfigurations())
-                    ->transactionId($billing->getIdentifier())
                     ->verify()
                     ->getReferenceId();
     } 
